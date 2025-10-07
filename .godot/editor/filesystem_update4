@@ -1,0 +1,5 @@
+res://Src/GameStart.tscn
+res://Src/GameStart/ExitLoad.cs
+res://Src/Tool/LoadExpand.cs
+res://Tscn/GameStart.tscn
+res://Tscn/UI/Exit.tscn

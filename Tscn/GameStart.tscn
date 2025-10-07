@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd72nds2u2py4"]
+
+[ext_resource type="Texture2D" uid="uid://bd17kabcum063" path="res://Assets/BackGround.png" id="1_ri4wl"]
+[ext_resource type="Script" uid="uid://gfg3hj8m3ssu" path="res://Src/GameStart/ExitLoad.cs" id="2_3gn4h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5rouu"]
+font_size = 200
+font_color = Color(0.431373, 0.654902, 0.215686, 1)
+outline_size = 10
+outline_color = Color(0.596078, 0.87451, 0.32549, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ak6r"]
+font_size = 60
+font_color = Color(0.431373, 0.654902, 0.215686, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_ri4wl")
+
+[node name="Title2" type="HBoxContainer" parent="."]
+offset_left = 510.0
+offset_top = 267.0
+offset_right = 1410.0
+offset_bottom = 540.0
+theme_override_constants/separation = 150
+
+[node name="One" type="VBoxContainer" parent="Title2"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Title2/One"]
+layout_mode = 2
+text = "贪"
+label_settings = SubResource("LabelSettings_5rouu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tow" type="VBoxContainer" parent="Title2"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Title2/Tow"]
+layout_mode = 2
+text = "吃"
+label_settings = SubResource("LabelSettings_5rouu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Three" type="VBoxContainer" parent="Title2"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Title2/Three"]
+layout_mode = 2
+text = "蛇"
+label_settings = SubResource("LabelSettings_5rouu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="."]
+offset_left = 649.0
+offset_top = 737.031
+offset_right = 1272.0
+offset_bottom = 820.031
+text = "请按任意键进入游戏....."
+label_settings = SubResource("LabelSettings_5ak6r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit_Load" type="Node2D" parent="."]
+position = Vector2(1829, 953)
+script = ExtResource("2_3gn4h")
