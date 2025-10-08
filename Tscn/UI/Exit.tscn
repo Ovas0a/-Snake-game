@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4xieexgd25x4"]
+[gd_scene load_steps=9 format=3 uid="uid://c4xieexgd25x4"]
 
 [ext_resource type="Texture2D" uid="uid://b0h0p4xthk5hj" path="res://Assets/ExitSelect.png" id="1_jwqsw"]
+[ext_resource type="Script" uid="uid://cy8486oq0r1as" path="res://Src/UI/Exit.cs" id="2_o28nx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rouu"]
 atlas = ExtResource("1_jwqsw")
@@ -42,12 +43,13 @@ animations = [{
 font_size = 15
 font_color = Color(0.596078, 0.87451, 0.32549, 1)
 
-[node name="Exit" type="Node2D"]
+[node name="Node" type="Node2D"]
 
-[node name="Assets" type="AnimatedSprite2D" parent="."]
+[node name="Exit" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o28nx")
+script = ExtResource("2_o28nx")
 
-[node name="Text" type="Label" parent="Assets"]
+[node name="Text" type="Label" parent="Exit"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -59,6 +61,18 @@ offset_right = -11.0
 offset_bottom = -105.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "GameOver"
+text = "游戏结束"
 label_settings = SubResource("LabelSettings_3ybhv")
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Exit"]
+offset_left = -44.0
+offset_top = -77.0
+offset_right = 47.0
+offset_bottom = 97.0
+focus_mode = 0
+flat = true
+
+[connection signal="mouse_entered" from="Exit/Button" to="Exit" method="Mouser_entered"]
+[connection signal="mouse_exited" from="Exit/Button" to="Exit" method="exited"]
+[connection signal="pressed" from="Exit/Button" to="Exit" method="press"]

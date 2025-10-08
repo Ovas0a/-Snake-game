@@ -1,11 +1,14 @@
-Node2D
+Sprite2D
+TextureRect
+Control
+CanvasLayer
 AnimatedSprite2D
+Button
+Node2D
 TextureButton
 Label
 HBoxContainer
 VBoxContainer
 MarginContainer
-Control
 GridContainer
-Sprite2D
 ParallaxBackground

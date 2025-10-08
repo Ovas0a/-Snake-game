@@ -1,5 +1,11 @@
-res://Src/GameStart.tscn
 res://Src/GameStart/ExitLoad.cs
-res://Src/Tool/LoadExpand.cs
 res://Tscn/GameStart.tscn
 res://Tscn/UI/Exit.tscn
+res://是.tscn
+res://Src/UI/Exit.cs
+res://Tscn/Games.tscn
+res://Src/UI/AnimaSystemExpand.cs
+res://Tscn/UI/AnimaSystemExpand.tscn
+res://Src/Tool/Animation/TextureRect/Rect_HL_Expand.cs
+res://Src/Tool/Animation/Rect/Rect_HL_Expand.cs
+res://Src/Tool/LoadExpand.cs
