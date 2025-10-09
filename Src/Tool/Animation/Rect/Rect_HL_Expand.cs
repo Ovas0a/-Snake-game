@@ -30,6 +30,7 @@ public partial class Rect_HL_Expand : TextureRect
 		time = 1 / tike;
 		ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
 		StretchMode = TextureRect.StretchModeEnum.Tile;
+		this.Visible = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,9 +38,11 @@ public partial class Rect_HL_Expand : TextureRect
 	{
 		if (isPlay == true && this.Size.X < TextureSize.X)
 		{
+
 			timer += (float)delta;
 			if (timer < time) return;
 			timer = 0;
+			Visible = Visible == false ? true : true;
 
 			//播放
 			var setX = this.Size.X + Pix;
@@ -58,6 +61,7 @@ public partial class Rect_HL_Expand : TextureRect
 
 			//回播放
 			this.Size = new Vector2(this.Size.X - Pix, this.Size.Y);
+			if (Size.X <= 0) Visible = false;
 		}
 
 	}

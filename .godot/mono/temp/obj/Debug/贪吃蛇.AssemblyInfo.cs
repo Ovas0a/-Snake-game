@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("贪吃蛇")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+acbb2a37e46408c26b1fbfaac80bdd4cffbf4817")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0594c6ce4658a28e9e31540b0be1412949f9942d")]
 [assembly: System.Reflection.AssemblyProductAttribute("贪吃蛇")]
 [assembly: System.Reflection.AssemblyTitleAttribute("贪吃蛇")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

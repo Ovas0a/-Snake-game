@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtuvnk12pjxer"]
+[gd_scene load_steps=7 format=3 uid="uid://dtuvnk12pjxer"]
 
 [ext_resource type="Texture2D" uid="uid://rht832d5h5xh" path="res://Assets/SystemExpandUi.png" id="1_j4rfi"]
 [ext_resource type="Script" uid="uid://6rwiasdttdd6" path="res://Src/Tool/Animation/Rect/Rect_HL_Expand.cs" id="2_rcr6k"]
-[ext_resource type="Texture2D" uid="uid://lrhxvd37mvcc" path="res://Assets/System.png" id="3_j166k"]
+[ext_resource type="Texture2D" uid="uid://b1lxytipr7h6t" path="res://Assets/SytemButtonexit.png" id="4_8raja"]
+[ext_resource type="Script" uid="uid://d1ashh6d80lss" path="res://Src/UI/Anima_Ass_TextureRect_Button.cs" id="4_rcr6k"]
+[ext_resource type="Script" uid="uid://dniuivpjycvol" path="res://Src/UI/Anima_Ass_MouseCheck.cs" id="5_8raja"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8raja"]
+font_size = 40
+font_color = Color(0.431373, 0.654902, 0.215686, 1)
 
 [node name="AnimaSystemExpand" type="Node2D"]
 
@@ -13,8 +19,82 @@ texture = ExtResource("1_j4rfi")
 expand_mode = 1
 stretch_mode = 1
 script = ExtResource("2_rcr6k")
-isPlay = true
 
-[node name="按钮预设" type="Sprite2D" parent="Assets"]
-position = Vector2(572, 35)
-texture = ExtResource("3_j166k")
+[node name="MouseCheck" type="CharacterBody2D" parent="Assets"]
+z_index = 2
+position = Vector2(0, 53)
+collision_layer = 128
+collision_mask = 128
+input_pickable = true
+script = ExtResource("5_8raja")
+
+[node name="Rect" type="CollisionPolygon2D" parent="Assets/MouseCheck"]
+z_index = 2
+position = Vector2(0, -54)
+polygon = PackedVector2Array(0, 1, 992, 1, 992, 9, 1000, 9, 1000, 17, 1352, 17, 1352, 25, 1360, 25, 1360, 33, 1560, 33, 1560, 41, 1360, 41, 1360, 49, 1352, 49, 1352, 57, 1000, 57, 1000, 65, 992, 65, 992, 73, 0, 73)
+
+[node name="TextureRect" type="TextureRect" parent="Assets"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 3.0
+offset_right = 347.0
+offset_bottom = 69.0
+texture = ExtResource("4_8raja")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Assets/TextureRect"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 6.0
+offset_right = 257.0
+offset_bottom = 61.0
+text = "返回主菜单"
+label_settings = SubResource("LabelSettings_8raja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Assets/TextureRect"]
+layout_mode = 0
+offset_right = 319.0
+offset_bottom = 66.0
+focus_mode = 0
+mouse_filter = 1
+flat = true
+script = ExtResource("4_rcr6k")
+
+[node name="TextureRect2" type="TextureRect" parent="Assets"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 3.0
+offset_right = 969.0
+offset_bottom = 69.0
+texture = ExtResource("4_8raja")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Assets/TextureRect2"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 6.0
+offset_right = 257.0
+offset_bottom = 61.0
+text = "重新开始"
+label_settings = SubResource("LabelSettings_8raja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Assets/TextureRect2"]
+layout_mode = 0
+offset_right = 319.0
+offset_bottom = 66.0
+focus_mode = 0
+mouse_filter = 1
+flat = true
+script = ExtResource("4_rcr6k")
+
+[connection signal="mouse_entered" from="Assets/MouseCheck" to="Assets/MouseCheck" method="mouseEnter"]
+[connection signal="mouse_exited" from="Assets/MouseCheck" to="Assets/MouseCheck" method="MouseExit"]
+[connection signal="mouse_entered" from="Assets/TextureRect/Button" to="Assets/TextureRect/Button" method="mouseEnter"]
+[connection signal="mouse_exited" from="Assets/TextureRect/Button" to="Assets/TextureRect/Button" method="MouseExit"]
+[connection signal="pressed" from="Assets/TextureRect/Button" to="Assets/TextureRect/Button" method="returnPress"]
+[connection signal="mouse_entered" from="Assets/TextureRect2/Button" to="Assets/TextureRect2/Button" method="mouseEnter"]
+[connection signal="mouse_exited" from="Assets/TextureRect2/Button" to="Assets/TextureRect2/Button" method="MouseExit"]

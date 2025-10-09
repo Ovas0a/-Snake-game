@@ -16,9 +16,7 @@ public partial class ExitLoad : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
-
-
+		
 	}
 
 
@@ -27,12 +25,14 @@ public partial class ExitLoad : Node2D
 		base._Input(@event);
 		if(@event is InputEventKey || @event is InputEventMouseButton)
 		{
-			this.GetTree().CreateTimer(0.2).Timeout += () =>
-			{
-				GetTree().ChangeSceneToFile("res://Tscn/Games.tscn");
-			};
 			
-
+			
+			var mousePos = GetGlobalMousePosition();
+			var exitRect = this.GetChild<AnimatedSprite2D>(0).GetNode<Button>("Button").GetGlobalRect();
+			if (!exitRect.HasPoint(mousePos))
+			{
+				 GetTree().ChangeSceneToFile("res://Tscn/Games.tscn");
+			}
 			
         }
     }

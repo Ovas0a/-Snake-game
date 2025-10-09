@@ -1,9 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://blf570ehjav3u"]
+[gd_scene load_steps=7 format=3 uid="uid://blf570ehjav3u"]
 
 [ext_resource type="Texture2D" uid="uid://bd17kabcum063" path="res://Assets/BackGround.png" id="1_8b7uv"]
+[ext_resource type="Texture2D" uid="uid://lrhxvd37mvcc" path="res://Assets/System.png" id="2_gx2jy"]
+[ext_resource type="Script" uid="uid://bmps8ee7jp3pw" path="res://Src/Tool/Script/Anima/Node2d_Rotate.cs" id="3_xprom"]
+[ext_resource type="Script" uid="uid://da72t58fqatsn" path="res://Src/Games/SytemAnimaExpand.cs" id="4_gn5ue"]
+[ext_resource type="Script" uid="uid://mdq3tcuekosv" path="res://Src/Games/System_Button.cs" id="4_xprom"]
+[ext_resource type="Texture2D" uid="uid://b1lxytipr7h6t" path="res://Assets/SytemButtonexit.png" id="5_v1p8q"]
 
 [node name="Games" type="Node2D"]
 
 [node name="BackGround" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(961, 540)
 texture = ExtResource("1_8b7uv")
+
+[node name="SytemAnimaExpand" type="Node2D" parent="."]
+position = Vector2(170, 69)
+script = ExtResource("4_gn5ue")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 41.0
+offset_top = 33.0
+offset_right = 172.0
+offset_bottom = 166.0
+texture = ExtResource("5_v1p8q")
+
+[node name="System" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(106.975, 99)
+texture = ExtResource("2_gx2jy")
+script = ExtResource("3_xprom")
+maxDegree = 180.0
+Speed = 10.0
+
+[node name="Button" type="Button" parent="System"]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -118.5
+offset_right = 11.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+script = ExtResource("4_xprom")
+
+[connection signal="mouse_entered" from="System/Button" to="System/Button" method="mouseEnter"]
+[connection signal="mouse_exited" from="System/Button" to="System/Button" method="MouseExit"]
