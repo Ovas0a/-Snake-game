@@ -2,3 +2,16 @@ res://Tscn/GameStart.tscn
 res://Tscn/UI/Exit.tscn
 res://Tscn/UI/AnimaSystemExpand.tscn
 res://Tscn/Games.tscn
+res://Src/Games/System_Button.cs
+res://Src/UI/Exit.cs
+res://Src/Tool/Script/Anima/Node2d_Rotate.cs
+res://Src/UI/Anima_Ass_MouseCheck.cs
+res://Src/Games/SytemAnimaExpand.cs
+res://Src/UI/Anima_Ass_TextureRect_Button.cs
+res://Src/GameStart/ExitLoad.cs
+res://Src/Tool/Animation/Rect/Rect_HL_Expand.cs
+res://Src/Games/Snake/Head.cs
+res://Src/Tool/LoadExpand.cs
+res://Src/Games/Snake/Snake.cs
+res://Tscn/UI/SnakeTile.tscn
+res://Src/UI/Tile.cs

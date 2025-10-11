@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blf570ehjav3u"]
+[gd_scene load_steps=12 format=3 uid="uid://blf570ehjav3u"]
 
 [ext_resource type="Texture2D" uid="uid://bd17kabcum063" path="res://Assets/BackGround.png" id="1_8b7uv"]
 [ext_resource type="Texture2D" uid="uid://lrhxvd37mvcc" path="res://Assets/System.png" id="2_gx2jy"]
@@ -6,6 +6,15 @@
 [ext_resource type="Script" uid="uid://da72t58fqatsn" path="res://Src/Games/SytemAnimaExpand.cs" id="4_gn5ue"]
 [ext_resource type="Script" uid="uid://mdq3tcuekosv" path="res://Src/Games/System_Button.cs" id="4_xprom"]
 [ext_resource type="Texture2D" uid="uid://b1lxytipr7h6t" path="res://Assets/SytemButtonexit.png" id="5_v1p8q"]
+[ext_resource type="Script" uid="uid://ctc6it2qasvq5" path="res://Src/Games/Snake/Head.cs" id="7_ik1nr"]
+[ext_resource type="Script" uid="uid://v33nlmte8870" path="res://Src/Games/Snake/Snake.cs" id="7_n0rxu"]
+[ext_resource type="Texture2D" uid="uid://c8dkqx28teqnn" path="res://Assets/snakeHead.png" id="8_n0rxu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxbda"]
+radius = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ik1nr"]
+font_size = 100
 
 [node name="Games" type="Node2D"]
 
@@ -48,6 +57,35 @@ grow_vertical = 2
 focus_mode = 0
 flat = true
 script = ExtResource("4_xprom")
+
+[node name="Snake" type="Node2D" parent="."]
+script = ExtResource("7_n0rxu")
+
+[node name="Head" type="CharacterBody2D" parent="Snake"]
+position = Vector2(960, 540)
+script = ExtResource("7_ik1nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake/Head"]
+shape = SubResource("CircleShape2D_nxbda")
+disabled = true
+
+[node name="SnakeHead" type="Sprite2D" parent="Snake/Head"]
+texture = ExtResource("8_n0rxu")
+flip_h = true
+
+[node name="Tiles" type="Node2D" parent="Snake"]
+
+[node name="cs" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="cs"]
+offset_left = 808.0
+offset_top = 9.0
+offset_right = 1073.0
+offset_bottom = 146.0
+text = "1.2"
+label_settings = SubResource("LabelSettings_ik1nr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="System/Button" to="System/Button" method="mouseEnter"]
 [connection signal="mouse_exited" from="System/Button" to="System/Button" method="MouseExit"]
